@@ -110,12 +110,12 @@ void mpu6050_task(void *p) {
         putchar_raw(0xFF);
         putchar_raw(0);
         putchar_raw(roll_movement & 0xFF);
-        putchar_raw((roll_movement >> 8) & 0xFF);
+        putchar_raw(((uint16_t)roll_movement >> 8) & 0xFF);
         
         putchar_raw(0xFF);
         putchar_raw(1);
         putchar_raw(pitch_movement & 0xFF);
-        putchar_raw((pitch_movement >> 8) & 0xFF);
+        putchar_raw(((uint16_t)pitch_movement >> 8) & 0xFF);
 
         if (acceleration[1] > CLICK_ACCEL_THRESHOLD && can_click) {
             can_click = false;
